@@ -86,7 +86,19 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  return Math.max(...numbers);
+  //return Math.max(...numbers);
+  if (numbers.length === 0) {
+    return undefined;
+  }
+  let max = numbers[0];
+  let i = 1;
+  while (i < numbers.length) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    }
+    i++;
+  }
+  return max;
 }
 
 /**
@@ -102,7 +114,14 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  return numbers.filter((num) => num % 2 === 0);
+  //return numbers.filter((num) => num % 2 === 0);
+  let evens = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evens.push(numbers[i]);
+    }
+  }
+  return evens;
 }
 
 /**
@@ -110,5 +129,12 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  return numbers.filter((num) => num % 2 !== 0);
+  //  return numbers.filter((num) => num % 2 !== 0);
+  let odds = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) {
+      odds.push(numbers[i]);
+    }
+  }
+  return odds;
 }
